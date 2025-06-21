@@ -233,150 +233,231 @@
         </div>
     </div>
 
-   <script>
-    const participantes = {
-      colbert: {
-        nombre: "Jean-Baptiste Colbert",
-        inicial: "JC",
-        avatar:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Colbert1666.jpg/1200px-Colbert1666.jpg",
-        descripcion:
-          "Ministro de Finanzas francés, principal exponente del colbertismo",
-      },
-      mun: {
-        nombre: "Thomas Mun",
-        inicial: "TM",
-        avatar: "https://www.eumed.net/cursecon/dic/dent/m/muller-ah.jpg",
-        descripcion: "Economista inglés, teórico del mercantilismo",
-      },
-      cromwell: {
-        nombre: "Oliver Cromwell",
-        inicial: "OC",
-        avatar:
-          "https://ezgpf7f5ty2.exactdn.com/wp-content/uploads/cromwell.jpg?strip=all&lossy=1&ssl=1",
-        descripcion:
-          "Lord Protector de Inglaterra, implementó políticas mercantilistas",
-      },
-      teacher: {
-        nombre: "Profesora",
-        inicial: "P",
-        avatar: "https://i.imgur.com/qMYRTqE.png",
-        descripcion: "Moderando la discusión",
-      },
-    };
+    <script>
+        const participantes = {
+            colbert: {
+                nombre: "Jean-Baptiste Colbert",
+                inicial: "JC",
+                avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Colbert1666.jpg/1200px-Colbert1666.jpg",
+                descripcion: "Ministro de Finanzas francés, principal exponente del colbertismo"
+            },
+            mun: {
+                nombre: "Thomas Mun",
+                inicial: "TM",
+                avatar: "https://www.eumed.net/cursecon/dic/dent/m/muller-ah.jpg",
+                descripcion: "Economista inglés, teórico del mercantilismo"
+            },
+            cromwell: {
+                nombre: "Oliver Cromwell",
+                inicial: "OC",
+                avatar: "https://ezgpf7f5ty2.exactdn.com/wp-content/uploads/cromwell.jpg?strip=all&lossy=1&ssl=1",
+                descripcion: "Lord Protector de Inglaterra, implementó políticas mercantilistas"
+            },
+            teacher: {
+                nombre: "Profesora",
+                inicial: "P",
+                avatar: "https://i.imgur.com/qMYRTqE.png",
+                descripcion: "Moderando la discusión"
+            }
+        };
 
-    const flujoConversacion = [/* ... ya definido en tu mensaje ... */];
+        const flujoConversacion = [
+            {
+                pregunta: "Bienvenidos a todos. Podríamos comenzar explicando ¿qué es el mercantilismo?",
+                respuestas: [
+                    {
+                        sender: "mun",
+                        text: "El mercantilismo fue un sistema económico dominante en Europa entre los siglos XVI y XVIII. Su premisa básica era que la riqueza de una nación se medía por la cantidad de metales preciosos que poseía, especialmente oro y plata. Los países buscaban acumular estos metales mediante el comercio exterior, favoreciendo exportaciones e impidiendo importaciones. Esta lógica llevaba a una política económica muy activa por parte de los estados."
+                    },
+                    {
+                        sender: "colbert",
+                        text: "Desde mi rol como Ministro de Finanzas en Francia, promoví un sistema mercantilista riguroso que conocemos como colbertismo. Este sistema implicaba proteger las industrias nacionales, desarrollar manufacturas estatales de lujo, y mejorar las infraestructuras para facilitar el comercio interno y externo. Todo con el fin de lograr una balanza comercial favorable y enriquecer al Estado."
+                    }
+                ]
+            },
+            {
+                pregunta: "¿Cuáles son las características principales del mercantilismo?",
+                respuestas: [
+                    {
+                        sender: "cromwell",
+                        text: "Una de las principales características era el proteccionismo económico, mediante aranceles elevados para desalentar importaciones. Además, el colonialismo fue esencial: las colonias debían proveer materias primas y consumir productos de la metrópoli. También había una fuerte intervención estatal en la economía, lo que en Inglaterra se manifestó en los Navigation Acts, leyes diseñadas para asegurar que el comercio beneficiara directamente a la nación inglesa y a sus barcos."
+                    },
+                    {
+                        sender: "mun",
+                        text: "También se debe considerar que el mercantilismo partía de una visión del comercio internacional como un juego de suma cero, donde la ganancia de una nación implicaba la pérdida de otra. La acumulación de oro era vista como sinónimo de prosperidad, ignorando la importancia de la productividad, la innovación o el bienestar general de la población."
+                    }
+                ]
+            },
+            {
+                pregunta: "¿Había diferencias entre los países mercantilistas?",
+                respuestas: [
+                    {
+                        sender: "colbert",
+                        text: "En efecto. En Francia, mi enfoque se centró en fortalecer la industria nacional mediante manufacturas reales, como la fábrica de tapices Gobelinos o la de vidrios Saint-Gobain. Fomenté la producción de bienes de lujo que pudieran ser exportados y mejoré las rutas internas con canales y caminos, favoreciendo así la integración económica del país."
+                    },
+                    {
+                        sender: "cromwell",
+                        text: "En Inglaterra, por el contrario, el énfasis estaba en el dominio naval y el comercio internacional. Con los Navigation Acts restringimos el comercio extranjero en nuestros puertos, debilitando el comercio holandés. A su vez, se promovió la expansión colonial y la industria lanera, con un fuerte impulso a la construcción de barcos y puertos."
+                    }
+                ]
+            },
+            {
+                pregunta: "¿Cómo afectó el mercantilismo a las colonias?",
+                respuestas: [
+                    {
+                        sender: "cromwell",
+                        text: "Las colonias fueron vistas como extensiones económicas de la metrópoli. Por ejemplo, las colonias británicas en América del Norte no podían comerciar libremente con otros países. Debían exportar productos como azúcar, algodón y tabaco exclusivamente a Inglaterra, y a su vez importar bienes manufacturados británicos, incluso si estos eran más caros o de peor calidad que los de otras regiones."
+                    },
+                    {
+                        sender: "colbert",
+                        text: "En el caso de las colonias francesas, como Quebec, se aplicaron restricciones similares. No podían desarrollar industrias propias que compitieran con las francesas. Su rol era extraer materias primas, como pieles, que luego eran transformadas en bienes de lujo en Francia. Esta relación desequilibrada generó tensiones y resentimientos en las colonias."
+                    }
+                ]
+            },
+            {
+                pregunta: "¿Por qué declinó el mercantilismo?",
+                respuestas: [
+                    {
+                        sender: "mun",
+                        text: "La crítica más contundente vino con Adam Smith, quien en 1776 publicó 'La riqueza de las naciones'. Smith argumentó que la riqueza no era el oro acumulado sino la capacidad productiva de un país. Criticó duramente el proteccionismo, mostrando cómo este perjudicaba a los consumidores y distorsionaba el comercio. Propuso en su lugar el libre comercio y la competencia como motores de crecimiento económico."
+                    },
+                    {
+                        sender: "colbert",
+                        text: "Además, la llegada de la Revolución Industrial transformó las dinámicas económicas. Las fábricas necesitaban materias primas abundantes y mercados amplios. El control estatal rígido dejó de ser viable en un mundo que se volvía más dinámico y globalizado. El liberalismo económico fue reemplazando progresivamente las viejas ideas mercantilistas."
+                    }
+                ]
+            },
+            {
+                pregunta: "¿Qué legado dejó el mercantilismo?",
+                respuestas: [
+                    {
+                        sender: "cromwell",
+                        text: "Aunque como doctrina ya no se aplica, el mercantilismo dejó instituciones perdurables, como los bancos nacionales, sistemas aduaneros, y una visión del Estado como gestor de la economía nacional. En tiempos de crisis, muchas de sus ideas resurgen, como el proteccionismo y el nacionalismo económico."
+                    },
+                    {
+                        sender: "mun",
+                        text: "Hoy en día observamos prácticas que evocan el mercantilismo: guerras comerciales, subsidios estatales, y obsesión con mantener superávits comerciales. Gobiernos como el de China o Estados Unidos han implementado políticas que priorizan el interés nacional sobre el libre comercio, reflejando una relectura moderna del viejo pensamiento mercantilista."
+                    }
+                ]
+            }
+        ];
 
-    let pasoActual = 0;
-    let mostrandoRespuestas = false;
-    let placeholderEliminado = false;
+        let pasoActual = 0;
+        let mostrandoRespuestas = false;
+        let placeholderEliminado = false;
 
-    const contenedorMensajes = document.getElementById("messages");
-    const inputBox = document.getElementById("input-box");
-    const botonEnviar = document.getElementById("send-button");
+        const contenedorMensajes = document.getElementById('messages');
+        const inputBox = document.getElementById('input-box');
+        const botonEnviar = document.getElementById('send-button');
 
-    function mostrarMensaje(sender, text) {
-      const mensajeDiv = document.createElement("div");
-      mensajeDiv.classList.add("message", `${sender}-message`);
+        function mostrarMensaje(sender, text) {
+            const mensajeDiv = document.createElement('div');
+            mensajeDiv.classList.add('message', ${sender}-message);
 
-      const avatarImg = document.createElement("img");
-      avatarImg.src = participantes[sender].avatar;
-      avatarImg.alt = participantes[sender].nombre;
-      avatarImg.classList.add("message-avatar");
+            const avatarImg = document.createElement('img');
+            avatarImg.src = participantes[sender].avatar;
+            avatarImg.alt = participantes[sender].nombre;
+            avatarImg.classList.add('message-avatar');
 
-      const contenidoDiv = document.createElement("div");
-      contenidoDiv.classList.add("message-content");
+            const contenidoDiv = document.createElement('div');
+            contenidoDiv.classList.add('message-content');
 
-      const infoDiv = document.createElement("div");
-      infoDiv.classList.add("message-info");
+            const infoDiv = document.createElement('div');
+            infoDiv.classList.add('message-info');
 
-      const senderSpan = document.createElement("span");
-      senderSpan.classList.add("message-sender");
-      senderSpan.textContent = participantes[sender].nombre;
+            const senderSpan = document.createElement('span');
+            senderSpan.classList.add('message-sender');
+            senderSpan.textContent = participantes[sender].nombre;
 
-      const timeSpan = document.createElement("span");
-      timeSpan.classList.add("message-time");
-      const ahora = new Date();
-      timeSpan.textContent = `${ahora.getHours()}:${String(
-        ahora.getMinutes()
-      ).padStart(2, "0")}`;
+            const timeSpan = document.createElement('span');
+            timeSpan.classList.add('message-time');
+            const ahora = new Date();
+            timeSpan.textContent = ${ahora.getHours()}:${String(ahora.getMinutes()).padStart(2, '0')};
 
-      const bubbleDiv = document.createElement("div");
-      bubbleDiv.classList.add("message-bubble");
-      bubbleDiv.textContent = text;
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.classList.add('message-bubble');
+            bubbleDiv.textContent = text;
 
-      infoDiv.appendChild(senderSpan);
-      infoDiv.appendChild(timeSpan);
-      contenidoDiv.appendChild(infoDiv);
-      contenidoDiv.appendChild(bubbleDiv);
+            infoDiv.appendChild(senderSpan);
+            infoDiv.appendChild(timeSpan);
+            contenidoDiv.appendChild(infoDiv);
+            contenidoDiv.appendChild(bubbleDiv);
 
-      mensajeDiv.appendChild(avatarImg);
-      mensajeDiv.appendChild(contenidoDiv);
+            mensajeDiv.appendChild(avatarImg);
+            mensajeDiv.appendChild(contenidoDiv);
 
-      contenedorMensajes.appendChild(mensajeDiv);
-      contenedorMensajes.scrollTop = contenedorMensajes.scrollHeight;
-    }
-
-    function iniciarConversacion() {
-      mostrarMensaje("teacher", flujoConversacion[pasoActual].pregunta);
-      inputBox.value = flujoConversacion[pasoActual].pregunta;
-      inputBox.focus();
-    }
-
-    function mostrarRespuestas() {
-      mostrandoRespuestas = true;
-      const respuestas = flujoConversacion[pasoActual].respuestas;
-
-      respuestas.forEach((respuesta, index) => {
-        setTimeout(() => {
-          mostrarMensaje(respuesta.sender, respuesta.text);
-
-          if (index === respuestas.length - 1) {
-            setTimeout(() => {
-              pasoActual++;
-              if (pasoActual < flujoConversacion.length) {
-                inputBox.value = flujoConversacion[pasoActual].pregunta;
-              } else {
-                inputBox.value = "";
-                inputBox.disabled = true;
-                botonEnviar.disabled = true;
-                inputBox.placeholder = "Fin de la conversación";
-              }
-              mostrandoRespuestas = false;
-            }, 1500);
-          }
-        }, 1500 * (index + 1));
-      });
-    }
-
-    function manejarEnvio() {
-      const mensaje = inputBox.value.trim();
-      if (!mostrandoRespuestas && mensaje !== "") {
-        mostrarMensaje("teacher", mensaje);
-        inputBox.value = "";
-        if (!placeholderEliminado) {
-          inputBox.placeholder = "";
-          placeholderEliminado = true;
+            contenedorMensajes.appendChild(mensajeDiv);
+            contenedorMensajes.scrollTop = contenedorMensajes.scrollHeight;
         }
+
+        function iniciarConversacion() {
+            mostrarMensaje('teacher', flujoConversacion[pasoActual].pregunta);
+            inputBox.value = flujoConversacion[pasoActual].pregunta;
+            inputBox.focus();
+        }
+
+        function mostrarRespuestas() {
+            mostrandoRespuestas = true;
+            const respuestas = flujoConversacion[pasoActual].respuestas;
+
+            respuestas.forEach((respuesta, index) => {
+                setTimeout(() => {
+                    mostrarMensaje(respuesta.sender, respuesta.text);
+
+                    if (index === respuestas.length - 1) {
+                        setTimeout(() => {
+                            pasoActual++;
+                            if (pasoActual < flujoConversacion.length) {
+                                inputBox.value = flujoConversacion[pasoActual].pregunta;
+                            } else {
+                                inputBox.value = '';
+                                inputBox.disabled = true;
+                                botonEnviar.disabled = true;
+                                inputBox.placeholder = "Fin de la conversación";
+                            }
+                            mostrandoRespuestas = false;
+                        }, 1500);
+                    }
+                }, 1500 * (index + 1));
+            });
+        }
+
+// ... Dentro del script, reemplaza la función manejarEnvio con esta versión:
+function manejarEnvio() {
+    const mensaje = inputBox.value.trim();
+    if (!mostrandoRespuestas && mensaje !== '') {
+        mostrarMensaje('teacher', mensaje);
+
+        // 🔸 Limpiar input y quitar placeholder una sola vez
+        inputBox.value = '';
+        if (!placeholderEliminado) {
+            inputBox.placeholder = '';
+            placeholderEliminado = true;
+        }
+
+        // 🔸 Mostrar respuestas o activar modo libre
         setTimeout(() => {
-          if (pasoActual < flujoConversacion.length) {
-            mostrarRespuestas();
-          } else {
-            inputBox.placeholder =
-              "Escribe a uno de los personajes: @mun, @colbert, @cromwell...";
-            inputBox.disabled = false;
-            botonEnviar.disabled = false;
-          }
+            if (pasoActual < flujoConversacion.length) {
+                mostrarRespuestas();
+            } else {
+                inputBox.placeholder = "Escribe a uno de los personajes: @mun, @colbert, @cromwell...";
+                inputBox.disabled = false;
+                botonEnviar.disabled = false;
+            }
         }, 1000);
-      }
     }
+}
 
-    botonEnviar.addEventListener("click", manejarEnvio);
-    inputBox.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") manejarEnvio();
-    });
 
-    iniciarConversacion();
-  </script>
+        botonEnviar.addEventListener('click', manejarEnvio);
+
+        inputBox.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                manejarEnvio();
+            }
+        });
+
+        iniciarConversacion();
+    </script>
 </body>
 </html>
