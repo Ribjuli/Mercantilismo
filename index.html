@@ -422,16 +422,32 @@
             });
         }
 
-        function manejarEnvio() {
-            if (!mostrandoRespuestas && inputBox.value.trim() !== '') {
-                mostrarMensaje('teacher', inputBox.value);
-                if (!placeholderEliminado) {
-                    inputBox.placeholder = '';
-                    placeholderEliminado = true;
-                }
-                setTimeout(mostrarRespuestas, 1000);
-            }
+// ... Dentro del script, reemplaza la función `manejarEnvio` con esta versión:
+function manejarEnvio() {
+    const mensaje = inputBox.value.trim();
+    if (!mostrandoRespuestas && mensaje !== '') {
+        mostrarMensaje('teacher', mensaje);
+
+        // 🔸 Limpiar input y quitar placeholder una sola vez
+        inputBox.value = '';
+        if (!placeholderEliminado) {
+            inputBox.placeholder = '';
+            placeholderEliminado = true;
         }
+
+        // 🔸 Mostrar respuestas o activar modo libre
+        setTimeout(() => {
+            if (pasoActual < flujoConversacion.length) {
+                mostrarRespuestas();
+            } else {
+                inputBox.placeholder = "Escribe a uno de los personajes: @mun, @colbert, @cromwell...";
+                inputBox.disabled = false;
+                botonEnviar.disabled = false;
+            }
+        }, 1000);
+    }
+}
+
 
         botonEnviar.addEventListener('click', manejarEnvio);
 
