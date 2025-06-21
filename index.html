@@ -218,11 +218,11 @@
                 <p>En línea - 4 participantes</p>
             </div>
         </div>
-        
+
         <div class="messages" id="messages">
             <!-- Mensajes aparecerán aquí -->
         </div>
-        
+
         <div class="input-container">
             <input type="text" id="input-box" class="input-box" placeholder="Escribe un mensaje...">
             <button class="send-button" id="send-button">
@@ -238,19 +238,19 @@
             colbert: {
                 nombre: "Jean-Baptiste Colbert",
                 inicial: "JC",
-                avatar: "https://i.imgur.com/JVktXDS.png",
+                avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Colbert1666.jpg/1200px-Colbert1666.jpg",
                 descripcion: "Ministro de Finanzas francés, principal exponente del colbertismo"
             },
             mun: {
                 nombre: "Thomas Mun",
                 inicial: "TM",
-                avatar: "https://i.imgur.com/p5nJ3bd.png",
+                avatar: "https://www.eumed.net/cursecon/dic/dent/m/muller-ah.jpg",
                 descripcion: "Economista inglés, teórico del mercantilismo"
             },
             cromwell: {
                 nombre: "Oliver Cromwell",
                 inicial: "OC",
-                avatar: "https://i.imgur.com/JQ5yasN.png",
+                avatar: "https://ezgpf7f5ty2.exactdn.com/wp-content/uploads/cromwell.jpg?strip=all&lossy=1&ssl=1",
                 descripcion: "Lord Protector de Inglaterra, implementó políticas mercantilistas"
             },
             teacher: {
@@ -261,163 +261,160 @@
             }
         };
 
-        // Conversación detallada sobre mercantilismo
         const flujoConversacion = [
-            // Inicio
             {
                 pregunta: "Bienvenidos a todos. Podríamos comenzar explicando ¿qué es el mercantilismo?",
                 respuestas: [
                     {
                         sender: "mun",
-                        text: "El mercantilismo es un sistema económico que prevaleció en Europa entre los siglos XVI y XVIII. Se basaba en la creencia de que la riqueza de una nación dependía de su acumulación de metales preciosos, principalmente oro y plata."
+                        text: "El mercantilismo fue un sistema económico dominante en Europa entre los siglos XVI y XVIII. Su premisa básica era que la riqueza de una nación se medía por la cantidad de metales preciosos que poseía, especialmente oro y plata. Los países buscaban acumular estos metales mediante el comercio exterior, favoreciendo exportaciones e impidiendo importaciones. Esta lógica llevaba a una política económica muy activa por parte de los estados."
                     },
                     {
                         sender: "colbert",
-                        text: "Exacto. Como ministro de Luis XIV, implementé políticas para maximizar las exportaciones y minimizar las importaciones, lo que llamamos 'balanza comercial favorable'. Esto incluía el desarrollo de manufacturas reales."
+                        text: "Desde mi rol como Ministro de Finanzas en Francia, promoví un sistema mercantilista riguroso que conocemos como colbertismo. Este sistema implicaba proteger las industrias nacionales, desarrollar manufacturas estatales de lujo, y mejorar las infraestructuras para facilitar el comercio interno y externo. Todo con el fin de lograr una balanza comercial favorable y enriquecer al Estado."
                     }
                 ]
             },
-            // Características principales
             {
                 pregunta: "¿Cuáles son las características principales del mercantilismo?",
                 respuestas: [
                     {
                         sender: "cromwell",
-                        text: "1) Proteccionismo: altos aranceles a las importaciones. 2) Colonialismo: las colonias proveían materias primas y compraban productos terminados. 3) Intervención estatal fuerte en la economía. En Inglaterra implementamos los Navigation Acts para controlar el comercio."
+                        text: "Una de las principales características era el proteccionismo económico, mediante aranceles elevados para desalentar importaciones. Además, el colonialismo fue esencial: las colonias debían proveer materias primas y consumir productos de la metrópoli. También había una fuerte intervención estatal en la economía, lo que en Inglaterra se manifestó en los Navigation Acts, leyes diseñadas para asegurar que el comercio beneficiara directamente a la nación inglesa y a sus barcos."
                     },
                     {
                         sender: "mun",
-                        text: "Añadiría otras dos características clave: 4) La visión de suma cero del comercio internacional (si uno gana, otro pierde). 5) La identificación de riqueza con acumulación de metales preciosos, no con productividad."
+                        text: "También se debe considerar que el mercantilismo partía de una visión del comercio internacional como un juego de suma cero, donde la ganancia de una nación implicaba la pérdida de otra. La acumulación de oro era vista como sinónimo de prosperidad, ignorando la importancia de la productividad, la innovación o el bienestar general de la población."
                     }
                 ]
             },
-            // Diferencias nacionales
             {
                 pregunta: "¿Había diferencias entre los países mercantilistas?",
                 respuestas: [
                     {
                         sender: "colbert",
-                        text: "¡Por supuesto! En Francia desarrollé el 'colbertismo', que enfatizaba la industrialización y calidad de productos. Creé manufacturas reales como los Gobelinos para tapices y Saint-Gobain para vidrios. También mejoré la infraestructura con canales y caminos."
+                        text: "En efecto. En Francia, mi enfoque se centró en fortalecer la industria nacional mediante manufacturas reales, como la fábrica de tapices Gobelinos o la de vidrios Saint-Gobain. Fomenté la producción de bienes de lujo que pudieran ser exportados y mejoré las rutas internas con canales y caminos, favoreciendo así la integración económica del país."
                     },
                     {
                         sender: "cromwell",
-                        text: "Inglaterra se enfocó más en el poder naval y el comercio. Los Navigation Acts de 1651 requerían que las importaciones llegaran en barcos ingleses, destruyendo el predominio holandés. También promovimos la industria lanera."
+                        text: "En Inglaterra, por el contrario, el énfasis estaba en el dominio naval y el comercio internacional. Con los Navigation Acts restringimos el comercio extranjero en nuestros puertos, debilitando el comercio holandés. A su vez, se promovió la expansión colonial y la industria lanera, con un fuerte impulso a la construcción de barcos y puertos."
                     }
                 ]
             },
-            // Impacto en colonias
             {
                 pregunta: "¿Cómo afectó el mercantilismo a las colonias?",
                 respuestas: [
                     {
                         sender: "cromwell",
-                        text: "Las colonias existían para beneficiar a la metrópoli. Por ejemplo, las colonias inglesas en América del Norte debían enviar tabaco, algodón y azúcar solo a Inglaterra, y solo podían comprar manufacturas inglesas."
+                        text: "Las colonias fueron vistas como extensiones económicas de la metrópoli. Por ejemplo, las colonias británicas en América del Norte no podían comerciar libremente con otros países. Debían exportar productos como azúcar, algodón y tabaco exclusivamente a Inglaterra, y a su vez importar bienes manufacturados británicos, incluso si estos eran más caros o de peor calidad que los de otras regiones."
                     },
                     {
                         sender: "colbert",
-                        text: "En el caso francés, prohibimos que Quebec desarrollara industrias que compitieran con las nuestras. Su papel era proveer pieles para la industria de sombreros en Francia. Estas restricciones generaron mucho resentimiento."
+                        text: "En el caso de las colonias francesas, como Quebec, se aplicaron restricciones similares. No podían desarrollar industrias propias que compitieran con las francesas. Su rol era extraer materias primas, como pieles, que luego eran transformadas en bienes de lujo en Francia. Esta relación desequilibrada generó tensiones y resentimientos en las colonias."
                     }
                 ]
             },
-            // Decadencia
             {
                 pregunta: "¿Por qué declinó el mercantilismo?",
                 respuestas: [
                     {
                         sender: "mun",
-                        text: "Adam Smith en 'La Riqueza de las Naciones' (1776) demostró los errores del sistema: 1) Confundir dinero con riqueza. 2) Ignorar las ventajas del comercio libre. 3) Las políticas proteccionistas encarecían los bienes para los consumidores."
+                        text: "La crítica más contundente vino con Adam Smith, quien en 1776 publicó 'La riqueza de las naciones'. Smith argumentó que la riqueza no era el oro acumulado sino la capacidad productiva de un país. Criticó duramente el proteccionismo, mostrando cómo este perjudicaba a los consumidores y distorsionaba el comercio. Propuso en su lugar el libre comercio y la competencia como motores de crecimiento económico."
                     },
                     {
                         sender: "colbert",
-                        text: "Además, la Revolución Industrial hizo obsoletas muchas prácticas. Las nuevas fábricas necesitaban mercados más amplios y materias primas más baratas. El mundo se hacía demasiado complejo para el control estatal total."
+                        text: "Además, la llegada de la Revolución Industrial transformó las dinámicas económicas. Las fábricas necesitaban materias primas abundantes y mercados amplios. El control estatal rígido dejó de ser viable en un mundo que se volvía más dinámico y globalizado. El liberalismo económico fue reemplazando progresivamente las viejas ideas mercantilistas."
                     }
                 ]
             },
-            // Legado
             {
                 pregunta: "¿Qué legado dejó el mercantilismo?",
                 respuestas: [
                     {
                         sender: "cromwell",
-                        text: "Aunque el sistema como tal desapareció, dejó instituciones duraderas: bancos nacionales, sistemas monetarios organizados y la concepción de economías nacionales. También el proteccionismo reaparece en crisis económicas."
+                        text: "Aunque como doctrina ya no se aplica, el mercantilismo dejó instituciones perdurables, como los bancos nacionales, sistemas aduaneros, y una visión del Estado como gestor de la economía nacional. En tiempos de crisis, muchas de sus ideas resurgen, como el proteccionismo y el nacionalismo económico."
                     },
                     {
                         sender: "mun",
-                        text: "Actualmente vemos ecos del mercantilismo en políticas como los aranceles a productos chinos, subsidios a industrias estratégicas, y la obsesión con superávits comerciales de algunos gobiernos."
+                        text: "Hoy en día observamos prácticas que evocan el mercantilismo: guerras comerciales, subsidios estatales, y obsesión con mantener superávits comerciales. Gobiernos como el de China o Estados Unidos han implementado políticas que priorizan el interés nacional sobre el libre comercio, reflejando una relectura moderna del viejo pensamiento mercantilista."
                     }
                 ]
             }
         ];
 
-        // Estado de la conversación
         let pasoActual = 0;
         let mostrandoRespuestas = false;
+        let placeholderEliminado = false;
+
         const contenedorMensajes = document.getElementById('messages');
         const inputBox = document.getElementById('input-box');
         const botonEnviar = document.getElementById('send-button');
 
-        // Mostrar mensaje en el chat
         function mostrarMensaje(sender, text) {
             const mensajeDiv = document.createElement('div');
             mensajeDiv.classList.add('message', `${sender}-message`);
-            
+
             const avatarImg = document.createElement('img');
             avatarImg.src = participantes[sender].avatar;
             avatarImg.alt = participantes[sender].nombre;
             avatarImg.classList.add('message-avatar');
-            
+
             const contenidoDiv = document.createElement('div');
             contenidoDiv.classList.add('message-content');
-            
+
             const infoDiv = document.createElement('div');
             infoDiv.classList.add('message-info');
-            
+
             const senderSpan = document.createElement('span');
             senderSpan.classList.add('message-sender');
             senderSpan.textContent = participantes[sender].nombre;
-            
+
             const timeSpan = document.createElement('span');
             timeSpan.classList.add('message-time');
             const ahora = new Date();
             timeSpan.textContent = `${ahora.getHours()}:${String(ahora.getMinutes()).padStart(2, '0')}`;
-            
+
             const bubbleDiv = document.createElement('div');
             bubbleDiv.classList.add('message-bubble');
             bubbleDiv.textContent = text;
-            
+
             infoDiv.appendChild(senderSpan);
             infoDiv.appendChild(timeSpan);
             contenidoDiv.appendChild(infoDiv);
             contenidoDiv.appendChild(bubbleDiv);
-            
+
             mensajeDiv.appendChild(avatarImg);
             mensajeDiv.appendChild(contenidoDiv);
-            
+
             contenedorMensajes.appendChild(mensajeDiv);
             contenedorMensajes.scrollTop = contenedorMensajes.scrollHeight;
         }
 
-        // Iniciar conversación
         function iniciarConversacion() {
             mostrarMensaje('teacher', flujoConversacion[pasoActual].pregunta);
             inputBox.value = flujoConversacion[pasoActual].pregunta;
             inputBox.focus();
         }
 
-        // Mostrar respuestas
         function mostrarRespuestas() {
             mostrandoRespuestas = true;
             const respuestas = flujoConversacion[pasoActual].respuestas;
-            
+
             respuestas.forEach((respuesta, index) => {
                 setTimeout(() => {
                     mostrarMensaje(respuesta.sender, respuesta.text);
-                    
-                    // Preparar siguiente pregunta
+
                     if (index === respuestas.length - 1) {
                         setTimeout(() => {
-                            pasoActual = (pasoActual + 1) % flujoConversacion.length;
-                            inputBox.value = flujoConversacion[pasoActual].pregunta;
+                            pasoActual++;
+                            if (pasoActual < flujoConversacion.length) {
+                                inputBox.value = flujoConversacion[pasoActual].pregunta;
+                            } else {
+                                inputBox.value = '';
+                                inputBox.disabled = true;
+                                botonEnviar.disabled = true;
+                                inputBox.placeholder = "Fin de la conversación";
+                            }
                             mostrandoRespuestas = false;
                         }, 1500);
                     }
@@ -425,23 +422,25 @@
             });
         }
 
-        // Manejar clic en enviar
-        botonEnviar.addEventListener('click', () => {
+        function manejarEnvio() {
             if (!mostrandoRespuestas && inputBox.value.trim() !== '') {
                 mostrarMensaje('teacher', inputBox.value);
+                if (!placeholderEliminado) {
+                    inputBox.placeholder = '';
+                    placeholderEliminado = true;
+                }
                 setTimeout(mostrarRespuestas, 1000);
             }
-        });
+        }
 
-        // Manejar tecla Enter
+        botonEnviar.addEventListener('click', manejarEnvio);
+
         inputBox.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !mostrandoRespuestas && inputBox.value.trim() !== '') {
-                mostrarMensaje('teacher', inputBox.value);
-                setTimeout(mostrarRespuestas, 1000);
+            if (e.key === 'Enter') {
+                manejarEnvio();
             }
         });
 
-        // Iniciar la conversación
         iniciarConversacion();
     </script>
 </body>
