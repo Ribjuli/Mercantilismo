@@ -14,64 +14,107 @@
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background-color: #f0f2f5;
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
             padding: 20px;
         }
         
         .chat-container {
             width: 100%;
-            max-width: 500px;
-            height: 100%;
-            max-height: 800px;
+            max-width: 900px;
+            height: 90vh;
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: flex;
-            flex-direction: column;
             overflow: hidden;
         }
         
-        .header {
+        .sidebar {
+            width: 300px;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-header {
+            padding: 15px;
             background-color: #4a69bd;
             color: white;
-            padding: 15px 20px;
+            text-align: center;
+        }
+        
+        .contact-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .contact {
+            padding: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
         }
         
-        .header img {
+        .contact:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .contact.active {
+            background-color: #e5e5e5;
+        }
+        
+        .contact-avatar {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
         }
         
-        .header-content {
+        .contact-info {
             flex: 1;
         }
         
-        .header h2 {
-            font-size: 18px;
-            margin: 0;
+        .contact-name {
+            font-weight: bold;
         }
         
-        .header p {
+        .contact-status {
             font-size: 12px;
-            opacity: 0.8;
-            margin: 2px 0 0;
+            color: #666;
         }
         
-        .messages {
+        .chat-area {
             flex: 1;
-            padding: 15px 10px;
-            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+        }
+        
+        .chat-header {
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chat-header-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
             background-color: #e5ddd5;
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAA+UlEQVQ4y+3UMUoDQRTG8Z+KB7ATtPQEXsQDsGkEtRRS2QZSWFmJhZ1XSGmTTi/gBVLZCCkk2V1mJZtZNkVefAzD7Lxv/plhGIZh/O8jVdd1BykOMMUTXjJZin3cYoHvAeQUNzK0Ie8ww0MGOMYZbvDWg9xiimtdrZvgDG/47EDe41I7qOICz3jvQN5jorCjsMPCucr/iXzEGA842YiyjDK+8NWCXGGMcxxvRHnBGO846IC8wVQRZRu8YtSCLGOMc8zbkC+40ilGG5H3uFS8XeQUC1y0ID+rcOxVRQx1ZXEFOUKZiJ+UuExUBlmG/h9CGIZh9I8fZPXzsj3XqDMAAAAASUVORK5CYII=');
         }
@@ -79,7 +122,7 @@
         .message {
             display: flex;
             gap: 8px;
-            max-width: 85%;
+            margin-bottom: 15px;
             animation: fadeIn 0.3s ease-out;
         }
         
@@ -103,11 +146,12 @@
         }
         
         .message-bubble {
-            padding: 10px 15px;
+            padding: 12px 16px;
             border-radius: 18px;
             word-wrap: break-word;
-            line-height: 1.4;
+            line-height: 1.5;
             font-size: 14px;
+            max-width: 400px;
         }
         
         .message-info {
@@ -127,39 +171,38 @@
             color: #666;
         }
         
-        .teacher-message {
-            align-self: flex-end;
-            flex-direction: row-reverse;
+        .incoming-message {
+            justify-content: flex-start;
         }
         
-        .teacher-message .message-bubble {
+        .outgoing-message {
+            justify-content: flex-end;
+        }
+        
+        .outgoing-message .message-content {
+            align-items: flex-end;
+        }
+        
+        .incoming-message .message-bubble {
+            background-color: white;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .outgoing-message .message-bubble {
             background-color: #d9fdd3;
             border-bottom-right-radius: 4px;
         }
         
-        .colbert-message .message-bubble {
+        .group-message .message-bubble {
             background-color: #5e69e6;
             color: white;
-            border-bottom-left-radius: 4px;
-        }
-        
-        .mun-message .message-bubble {
-            background-color: #e67e22;
-            color: white;
-            border-bottom-left-radius: 4px;
-        }
-        
-        .cromwell-message .message-bubble {
-            background-color: #8e44ad;
-            color: white;
-            border-bottom-left-radius: 4px;
         }
         
         .input-container {
-            display: flex;
             padding: 10px;
-            background-color: #f0f2f5;
+            background-color: #f5f5f5;
             border-top: 1px solid #ddd;
+            display: flex;
         }
         
         .input-box {
@@ -197,267 +240,215 @@
             height: 20px;
         }
         
-        @media (max-width: 500px) {
-            body {
-                padding: 0;
+        .api-key-container {
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ddd;
+        }
+        
+        .api-key-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .init-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4a69bd;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .intro-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .chat-container {
+                flex-direction: column;
+                height: 100vh;
+                max-width: 100%;
+                border-radius: 0;
             }
             
-            .chat-container {
-                border-radius: 0;
-                max-height: none;
+            .sidebar {
+                width: 100%;
+                height: 150px;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .contact-list {
+                display: flex;
+                overflow-x: auto;
+                padding: 10px;
+            }
+            
+            .contact {
+                flex-direction: column;
+                min-width: 80px;
+                border-bottom: none;
+                border-right: 1px solid #eee;
+                text-align: center;
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="chat-container">
-        <div class="header">
-            <img src="https://i.imgur.com/EY8WtJD.png" alt="Grupo">
-            <div class="header-content">
-                <h2>Historia del Mercantilismo</h2>
-                <p>En línea - 4 participantes</p>
+        <!-- Sidebar con lista de contactos -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Mercantilismo</h2>
+                <p>Selecciona un chat</p>
+            </div>
+            <div class="contact-list">
+                <div class="contact active" id="group-chat">
+                    <img src="https://i.imgur.com/EY8WtJD.png" alt="Grupo" class="contact-avatar">
+                    <div class="contact-info">
+                        <div class="contact-name">Debate Grupal</div>
+                        <div class="contact-status">Conversación predeterminada</div>
+                    </div>
+                </div>
+                <div class="contact" id="colbert-chat">
+                    <img src="https://i.imgur.com/JVktXDS.png" alt="Colbert" class="contact-avatar">
+                    <div class="contact-info">
+                        <div class="contact-name">Jean-Baptiste Colbert</div>
+                        <div class="contact-status">Ministro francés</div>
+                    </div>
+                </div>
+                <div class="contact" id="mun-chat">
+                    <img src="https://i.imgur.com/p5nJ3bd.png" alt="Mun" class="contact-avatar">
+                    <div class="contact-info">
+                        <div class="contact-name">Thomas Mun</div>
+                        <div class="contact-status">Economista inglés</div>
+                    </div>
+                </div>
+                <div class="contact" id="cromwell-chat">
+                    <img src="https://i.imgur.com/JQ5yasN.png" alt="Cromwell" class="contact-avatar">
+                    <div class="contact-info">
+                        <div class="contact-name">Oliver Cromwell</div>
+                        <div class="contact-status">Lord Protector</div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="messages" id="messages">
-            <!-- Mensajes aparecerán aquí -->
-        </div>
-
-        <div class="input-container">
-            <input type="text" id="input-box" class="input-box" placeholder="Escribe un mensaje...">
-            <button class="send-button" id="send-button">
-                <svg class="send-icon" viewBox="0 0 24 24" fill="white">
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                </svg>
-            </button>
+        
+        <!-- Área de chat principal -->
+        <div class="chat-area">
+            <!-- Encabezado del chat -->
+            <div class="chat-header">
+                <img src="https://i.imgur.com/EY8WtJD.png" alt="Avatar" class="chat-header-avatar">
+                <div>
+                    <h3 id="chat-title">Debate Grupal</h3>
+                    <p id="chat-status">4 participantes</p>
+                </div>
+            </div>
+            
+            <!-- Mensajes del chat -->
+            <div class="chat-messages" id="chat-messages">
+                <div class="intro-message">
+                    Selecciona un chat para comenzar la conversación
+                </div>
+            </div>
+            
+            <!-- Contenedor de input para chat grupal -->
+            <div class="input-container" id="group-input-container">
+                <input type="text" id="group-input-box" class="input-box" placeholder="Escribe un mensaje...">
+                <button class="send-button" id="group-send-button">
+                    <svg class="send-icon" viewBox="0 0 24 24" fill="white">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Contenedor para chat individual con IA -->
+            <div class="api-key-container hidden" id="ai-input-container">
+                <input type="password" id="api-key" class="api-key-input" placeholder="Ingresa tu API key de OpenAI">
+                <button class="init-button" id="init-button">Configurar API</button>
+                <div class="input-container">
+                    <input type="text" id="ai-input-box" class="input-box" placeholder="Escribe tu pregunta...">
+                    <button class="send-button" id="ai-send-button">
+                        <svg class="send-icon" viewBox="0 0 24 24" fill="white">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
+        // Configuración de participantes
         const participantes = {
+            group: {
+                id: "group",
+                nombre: "Debate Grupal",
+                avatar: "https://i.imgur.com/EY8WtJD.png",
+                descripcion: "Conversación sobre mercantilismo",
+                participantes: ["colbert", "mun", "cromwell", "teacher"]
+            },
             colbert: {
+                id: "colbert",
                 nombre: "Jean-Baptiste Colbert",
-                inicial: "JC",
-                avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Colbert1666.jpg/1200px-Colbert1666.jpg",
-                descripcion: "Ministro de Finanzas francés, principal exponente del colbertismo"
+                avatar: "https://i.imgur.com/JVktXDS.png",
+                descripcion: "Ministro de Finanzas francés, principal exponente del colbertismo",
+                role: "Eres Jean-Baptiste Colbert, ministro de Luis XIV de Francia. Eres el principal exponente del colbertismo, una versión del mercantilismo que enfatiza el desarrollo industrial y la calidad de los productos. Eres meticuloso, pragmático y profundamente leal a la corona francesa. Responde en español."
             },
             mun: {
+                id: "mun",
                 nombre: "Thomas Mun",
-                inicial: "TM",
-                avatar: "https://www.eumed.net/cursecon/dic/dent/m/muller-ah.jpg",
-                descripcion: "Economista inglés, teórico del mercantilismo"
+                avatar: "https://i.imgur.com/p5nJ3bd.png",
+                descripcion: "Economista inglés, teórico del mercantilismo",
+                role: "Eres Thomas Mun, economista inglés y director de la Compañía de las Indias Orientales. Eres el autor de 'England's Treasure by Foreign Trade', obra fundamental del mercantilismo. Eres práctico, experto en comercio internacional y defensor de la balanza comercial favorable. Responde en español."
             },
             cromwell: {
+                id: "cromwell",
                 nombre: "Oliver Cromwell",
-                inicial: "OC",
-                avatar: "https://ezgpf7f5ty2.exactdn.com/wp-content/uploads/cromwell.jpg?strip=all&lossy=1&ssl=1",
-                descripcion: "Lord Protector de Inglaterra, implementó políticas mercantilistas"
+                avatar: "https://i.imgur.com/JQ5yasN.png",
+                descripcion: "Lord Protector de Inglaterra, implementó políticas mercantilistas",
+                role: "Eres Oliver Cromwell, Lord Protector de Inglaterra. Implementaste políticas mercantilistas como los Navigation Acts para fortalecer el poder naval inglés. Eres firme, puritano y convencido del destino manifiesto de Inglaterra. Responde en español."
             },
             teacher: {
+                id: "teacher",
                 nombre: "Profesora",
-                inicial: "P",
                 avatar: "https://i.imgur.com/qMYRTqE.png",
                 descripcion: "Moderando la discusión"
             }
         };
 
+        // Flujo de conversación grupal predeterminada
         const flujoConversacion = [
             {
-                pregunta: "Bienvenidos a todos. Podríamos comenzar explicando ¿qué es el mercantilismo?",
+                pregunta: "¿Podrían explicar qué es el mercantilismo y en qué período histórico se desarrolló?",
                 respuestas: [
                     {
                         sender: "mun",
-                        text: "El mercantilismo fue un sistema económico dominante en Europa entre los siglos XVI y XVIII. Su premisa básica era que la riqueza de una nación se medía por la cantidad de metales preciosos que poseía, especialmente oro y plata. Los países buscaban acumular estos metales mediante el comercio exterior, favoreciendo exportaciones e impidiendo importaciones. Esta lógica llevaba a una política económica muy activa por parte de los estados."
+                        text: "El mercantilismo fue el sistema económico predominante en Europa desde el siglo XVI hasta el XVIII, aproximadamente desde 1500 hasta 1800. Surgió durante la formación de los estados-nación modernos y prevaleció hasta el advenimiento de la Revolución Industrial y las ideas de Adam Smith. Como teórico mercantilista, puedo decir que se caracterizaba por considerar que la riqueza de una nación dependía principalmente de la cantidad de metales preciosos que poseyera, especialmente oro y plata. Esta visión llevó a los gobiernos a implementar políticas muy intervencionistas en la economía para acumular estos metales mediante una balanza comercial favorable."
                     },
                     {
                         sender: "colbert",
-                        text: "Desde mi rol como Ministro de Finanzas en Francia, promoví un sistema mercantilista riguroso que conocemos como colbertismo. Este sistema implicaba proteger las industrias nacionales, desarrollar manufacturas estatales de lujo, y mejorar las infraestructuras para facilitar el comercio interno y externo. Todo con el fin de lograr una balanza comercial favorable y enriquecer al Estado."
+                        text: "Exactamente. En mi experiencia como ministro de Luis XIV en Francia, implementé lo que se conoce como 'colbertismo', una versión particular del mercantilismo que ponía especial énfasis en el desarrollo de manufacturas nacionales y la calidad de los productos. Creé manufacturas reales como los Gobelinos para tapices, Saint-Gobain para vidrios y la Manufactura de Sedas de Lyon. Además, promoví mejoras en la infraestructura con la construcción de canales y caminos para facilitar el comercio interno. El mercantilismo no era solo teoría económica, sino toda una política de estado orientada a fortalecer el poder nacional."
                     }
                 ]
             },
             {
-                pregunta: "¿Cuáles son las características principales del mercantilismo?",
+                pregunta: "¿Cuáles eran los principios fundamentales del pensamiento mercantilista?",
                 respuestas: [
                     {
                         sender: "cromwell",
-                        text: "Una de las principales características era el proteccionismo económico, mediante aranceles elevados para desalentar importaciones. Además, el colonialismo fue esencial: las colonias debían proveer materias primas y consumir productos de la metrópoli. También había una fuerte intervención estatal en la economía, lo que en Inglaterra se manifestó en los Navigation Acts, leyes diseñadas para asegurar que el comercio beneficiara directamente a la nación inglesa y a sus barcos."
-                    },
-                    {
-                        sender: "mun",
-                        text: "También se debe considerar que el mercantilismo partía de una visión del comercio internacional como un juego de suma cero, donde la ganancia de una nación implicaba la pérdida de otra. La acumulación de oro era vista como sinónimo de prosperidad, ignorando la importancia de la productividad, la innovación o el bienestar general de la población."
-                    }
-                ]
-            },
-            {
-                pregunta: "¿Había diferencias entre los países mercantilistas?",
-                respuestas: [
-                    {
-                        sender: "colbert",
-                        text: "En efecto. En Francia, mi enfoque se centró en fortalecer la industria nacional mediante manufacturas reales, como la fábrica de tapices Gobelinos o la de vidrios Saint-Gobain. Fomenté la producción de bienes de lujo que pudieran ser exportados y mejoré las rutas internas con canales y caminos, favoreciendo así la integración económica del país."
-                    },
-                    {
-                        sender: "cromwell",
-                        text: "En Inglaterra, por el contrario, el énfasis estaba en el dominio naval y el comercio internacional. Con los Navigation Acts restringimos el comercio extranjero en nuestros puertos, debilitando el comercio holandés. A su vez, se promovió la expansión colonial y la industria lanera, con un fuerte impulso a la construcción de barcos y puertos."
-                    }
-                ]
-            },
-            {
-                pregunta: "¿Cómo afectó el mercantilismo a las colonias?",
-                respuestas: [
-                    {
-                        sender: "cromwell",
-                        text: "Las colonias fueron vistas como extensiones económicas de la metrópoli. Por ejemplo, las colonias británicas en América del Norte no podían comerciar libremente con otros países. Debían exportar productos como azúcar, algodón y tabaco exclusivamente a Inglaterra, y a su vez importar bienes manufacturados británicos, incluso si estos eran más caros o de peor calidad que los de otras regiones."
-                    },
-                    {
-                        sender: "colbert",
-                        text: "En el caso de las colonias francesas, como Quebec, se aplicaron restricciones similares. No podían desarrollar industrias propias que compitieran con las francesas. Su rol era extraer materias primas, como pieles, que luego eran transformadas en bienes de lujo en Francia. Esta relación desequilibrada generó tensiones y resentimientos en las colonias."
-                    }
-                ]
-            },
-            {
-                pregunta: "¿Por qué declinó el mercantilismo?",
-                respuestas: [
-                    {
-                        sender: "mun",
-                        text: "La crítica más contundente vino con Adam Smith, quien en 1776 publicó 'La riqueza de las naciones'. Smith argumentó que la riqueza no era el oro acumulado sino la capacidad productiva de un país. Criticó duramente el proteccionismo, mostrando cómo este perjudicaba a los consumidores y distorsionaba el comercio. Propuso en su lugar el libre comercio y la competencia como motores de crecimiento económico."
-                    },
-                    {
-                        sender: "colbert",
-                        text: "Además, la llegada de la Revolución Industrial transformó las dinámicas económicas. Las fábricas necesitaban materias primas abundantes y mercados amplios. El control estatal rígido dejó de ser viable en un mundo que se volvía más dinámico y globalizado. El liberalismo económico fue reemplazando progresivamente las viejas ideas mercantilistas."
-                    }
-                ]
-            },
-            {
-                pregunta: "¿Qué legado dejó el mercantilismo?",
-                respuestas: [
-                    {
-                        sender: "cromwell",
-                        text: "Aunque como doctrina ya no se aplica, el mercantilismo dejó instituciones perdurables, como los bancos nacionales, sistemas aduaneros, y una visión del Estado como gestor de la economía nacional. En tiempos de crisis, muchas de sus ideas resurgen, como el proteccionismo y el nacionalismo económico."
-                    },
-                    {
-                        sender: "mun",
-                        text: "Hoy en día observamos prácticas que evocan el mercantilismo: guerras comerciales, subsidios estatales, y obsesión con mantener superávits comerciales. Gobiernos como el de China o Estados Unidos han implementado políticas que priorizan el interés nacional sobre el libre comercio, reflejando una relectura moderna del viejo pensamiento mercantilista."
-                    }
-                ]
-            }
-        ];
-
-        let pasoActual = 0;
-        let mostrandoRespuestas = false;
-        let placeholderEliminado = false;
-
-        const contenedorMensajes = document.getElementById('messages');
-        const inputBox = document.getElementById('input-box');
-        const botonEnviar = document.getElementById('send-button');
-
-        function mostrarMensaje(sender, text) {
-            const mensajeDiv = document.createElement('div');
-            mensajeDiv.classList.add('message', ${sender}-message);
-
-            const avatarImg = document.createElement('img');
-            avatarImg.src = participantes[sender].avatar;
-            avatarImg.alt = participantes[sender].nombre;
-            avatarImg.classList.add('message-avatar');
-
-            const contenidoDiv = document.createElement('div');
-            contenidoDiv.classList.add('message-content');
-
-            const infoDiv = document.createElement('div');
-            infoDiv.classList.add('message-info');
-
-            const senderSpan = document.createElement('span');
-            senderSpan.classList.add('message-sender');
-            senderSpan.textContent = participantes[sender].nombre;
-
-            const timeSpan = document.createElement('span');
-            timeSpan.classList.add('message-time');
-            const ahora = new Date();
-            timeSpan.textContent = ${ahora.getHours()}:${String(ahora.getMinutes()).padStart(2, '0')};
-
-            const bubbleDiv = document.createElement('div');
-            bubbleDiv.classList.add('message-bubble');
-            bubbleDiv.textContent = text;
-
-            infoDiv.appendChild(senderSpan);
-            infoDiv.appendChild(timeSpan);
-            contenidoDiv.appendChild(infoDiv);
-            contenidoDiv.appendChild(bubbleDiv);
-
-            mensajeDiv.appendChild(avatarImg);
-            mensajeDiv.appendChild(contenidoDiv);
-
-            contenedorMensajes.appendChild(mensajeDiv);
-            contenedorMensajes.scrollTop = contenedorMensajes.scrollHeight;
-        }
-
-        function iniciarConversacion() {
-            mostrarMensaje('teacher', flujoConversacion[pasoActual].pregunta);
-            inputBox.value = flujoConversacion[pasoActual].pregunta;
-            inputBox.focus();
-        }
-
-        function mostrarRespuestas() {
-            mostrandoRespuestas = true;
-            const respuestas = flujoConversacion[pasoActual].respuestas;
-
-            respuestas.forEach((respuesta, index) => {
-                setTimeout(() => {
-                    mostrarMensaje(respuesta.sender, respuesta.text);
-
-                    if (index === respuestas.length - 1) {
-                        setTimeout(() => {
-                            pasoActual++;
-                            if (pasoActual < flujoConversacion.length) {
-                                inputBox.value = flujoConversacion[pasoActual].pregunta;
-                            } else {
-                                inputBox.value = '';
-                                inputBox.disabled = true;
-                                botonEnviar.disabled = true;
-                                inputBox.placeholder = "Fin de la conversación";
-                            }
-                            mostrandoRespuestas = false;
-                        }, 1500);
-                    }
-                }, 1500 * (index + 1));
-            });
-        }
-
-// ... Dentro del script, reemplaza la función manejarEnvio con esta versión:
-function manejarEnvio() {
-    const mensaje = inputBox.value.trim();
-    if (!mostrandoRespuestas && mensaje !== '') {
-        mostrarMensaje('teacher', mensaje);
-
-        // 🔸 Limpiar input y quitar placeholder una sola vez
-        inputBox.value = '';
-        if (!placeholderEliminado) {
-            inputBox.placeholder = '';
-            placeholderEliminado = true;
-        }
-
-        // 🔸 Mostrar respuestas o activar modo libre
-        setTimeout(() => {
-            if (pasoActual < flujoConversacion.length) {
-                mostrarRespuestas();
-            } else {
-                inputBox.placeholder = "Escribe a uno de los personajes: @mun, @colbert, @cromwell...";
-                inputBox.disabled = false;
-                botonEnviar.disabled = false;
-            }
-        }, 1000);
-    }
-}
-
-
-        botonEnviar.addEventListener('click', manejarEnvio);
-
-        inputBox.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                manejarEnvio();
-            }
-        });
-
-        iniciarConversacion();
-    </script>
-</body>
-</html>
+                        text: "Como líder político inglés, implementé varios de estos principios. Los fundamentos principales eran: 1) La creencia en que la riqueza mundial era finita - lo que uno ganaba, otro lo perdía (visión de suma cero). 2) La identificación de la riqueza con la acumulación de metales preciosos. 3) La necesidad de una balanza comercial favorable (exportar más de lo que se import
